@@ -1,5 +1,9 @@
 package OrientacaoService;
 
-public class OrientacaoSrc {
+import Orientacao.model.Orientacao;
+
+public class OrientacaoSrc extends Orientacao {
+	
+	
 
 }
