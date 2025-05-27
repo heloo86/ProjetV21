@@ -177,8 +177,8 @@ public class Orientacao {
             
             // Salva os dados no objeto
             orientacoes[posicao][0].setOrientacao(orientacaoPT);
-            orientacoes[posicao][0].setIdioma(1); // Português (você pode definir uma constante para isso)
-            orientacoes[posicao][0].setExist(true); // Marca como existente
+            orientacoes[posicao][0].setIdioma(1); 
+            orientacoes[posicao][0].setExist(true); 
             
         }
         
