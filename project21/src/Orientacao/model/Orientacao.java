@@ -136,14 +136,21 @@ public class Orientacao {
             System.out.println("                   !ATENÇÃO! \nvocê terá que adicionar a orientação em todos os \nidiomas (Alemão,Espanhol,Francês,Inglês,\nPortuguês-BR)");
             System.out.println("===================================================");
             
-            // Processamento para o título em português
-            String tituloPT = "";
+            
+            //---------- Inicio do cadastro-------------------------
+            
+            // Validação para o título em português
+            
+            String titulo = "";
+            String orientacao = "";
+            int idioma = 0;
+            
             do {
-                valido = true;
+               valido = true;
                 System.out.print("Digite o titulo em Portugês: ");
-                tituloPT = scan.nextLine();
+                titulo = scan.nextLine();
                 
-                if (tituloPT.trim().isEmpty()) {
+                if (titulo.trim().isEmpty()) {
                     System.out.println("\n A orientação precisa de um título válido\n");
                     valido = false;
                     continue;
@@ -151,7 +158,7 @@ public class Orientacao {
                 
                 // Verifica se já existe um título igual
                 for (int i = 0; i < orientacoes.length; i++) {
-                    if (orientacoes[i][0].isExist() && tituloPT.equalsIgnoreCase(orientacoes[i][0].getTitulo())) {
+                    if (orientacoes[i][idioma].isExist() && titulo.equalsIgnoreCase(orientacoes[i][idioma].getTitulo())) {
                         System.out.println("\n Já existe uma orientação com este título");
                         valido = false;
                         break;
@@ -159,28 +166,84 @@ public class Orientacao {
                 }
             } while (!valido);
             
-            orientacoes[posicao][0].setTitulo(tituloPT);
+            orientacoes[posicao][idioma].setTitulo(titulo);
             
-            // Processamento para a orientação em português
-            String orientacaoPT = "";
+            // Validação para a orientação em português
+            
             do {
                 valido = true;
                 System.out.println("---------------------------------------------------------");
                 System.out.print("Digite a orientação: ");
-                orientacaoPT = scan.nextLine();
+                orientacao = scan.nextLine();
                 
-                if (orientacaoPT.trim().isEmpty()) {
+                if (orientacao.trim().isEmpty()) {
                     System.out.println("\n É preciso preencher este campo\n");
                     valido = false;
                 }
             } while (!valido);
             
             // Salva os dados no objeto
-            orientacoes[posicao][0].setOrientacao(orientacaoPT);
-            orientacoes[posicao][0].setIdioma(1); 
-            orientacoes[posicao][0].setExist(true); 
+            orientacoes[posicao][idioma].setOrientacao(orientacao);
             
-        }
+            orientacoes[posicao][idioma].setIdioma(1); 
+            orientacoes[posicao][idioma].setExist(true); 
+            
+        
+        
+        //-----------------------------------------------------------------------------------Espanhol
+        
+     
+            
+        titulo = ""; //Limpa variavel do titulo
+        idioma = 1; // define idioma como 1 referente ao espanhol
+        
+        // Validação para o titulo em espanhol
+        do {
+        	valido = true;
+            System.out.print("Digite o titulo em Portugês: ");
+            titulo = scan.nextLine();
+            
+            if (titulo.trim().isEmpty()) {
+                System.out.println("\n A orientação precisa de um título válido\n");
+                valido = false;
+                continue;
+            }
+            
+            // Verifica se já existe um título igual
+            for (int i = 0; i < orientacoes.length; i++) {
+                if (orientacoes[i][idioma].isExist() && titulo.equalsIgnoreCase(orientacoes[i][idioma].getTitulo())) {
+                    System.out.println("\n Já existe uma orientação com este título");
+                    valido = false;
+                    break;
+                }
+            }
+        } while (!valido);
+        
+        orientacoes[posicao][idioma].setTitulo(titulo);
+        
+        // validação para a orientação em português
+        orientacao = ""; // limpa variavel que recebe a orientacao
+        do {
+            valido = true;
+            System.out.println("---------------------------------------------------------");
+            System.out.print("Digite a orientação: ");
+            orientacao = scan.nextLine();
+            
+            if (orientacao.trim().isEmpty()) {
+                System.out.println("\n É preciso preencher este campo\n");
+                valido = false;
+            }
+        } while (!valido);
+        
+        // Salva os dados no objeto
+        orientacoes[posicao][idioma].setOrientacao(orientacao);
+        orientacoes[posicao][idioma].setIdioma(1); 
+        orientacoes[posicao][idioma].setExist(true); 
+        
+    }
+        
+        
+        
         
     }
             
